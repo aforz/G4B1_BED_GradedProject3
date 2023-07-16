@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div>
+		<h4
+			style="background-color: blue; color: white; height: 60px; line-height: 2.2; margin-left: 10px; margin-right: 10px;">
+			<span style="margin-left: 10px">Ticket Tracker Application</span>
+			&nbsp; &nbsp; 
+			<span><a th:href="@{/tickets/list}" class="btn-sm mb-3"><strong style="font-size: 1.0rem; color : white; height: 60px;">Tickets</strong> </a></span>
+			<span><a th:href="@{/tickets/create}" class="btn-sm mb-3"> <strong style="font-size: 1.0rem; color : white; height: 60px;">New Ticket</strong></a></span>
+		</h4>
+
+		<div class="container"
+			style="border: 0.5px solid lightgray; width: 40%">
+			<div class="card">
+				<div class="card-header">
+					<h2 class="text-center" th:text="${heading}"></h2>
+				</div>
+				<div class="card-body">
+					<form action="#" th:action="@{/tickets/save}" th:object="${ticket}"
+						method="POST" style="margin-left: 60px">
+
+						<!-- Add hidden form field to handle update -->
+						<input type="hidden" th:field="*{id}" /> <input type="hidden"
+							th:field="*{ticketCreatedOn}">
+						<div class="mb-3">
+							<label class="form-label" for="ticketTitle">Title</label> <input
+								type="text" th:field="*{ticketTitle}" class="form-control"
+								placeholder="Enter title ticket" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="ticketShortDescription">Short
+								Description</label>
+							<textarea type="text" th:field="*{ticketShortDescription}"
+								class="form-control" placeholder="Enter ticket description"></textarea>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="content">Content</label>
+							<textarea type="text" th:field="*{content}" class="form-control"
+								placeholder="Enter content"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary col-2">Submit</button>
+
+					</form>
+				</div>
+			</div>
+			<div class="text-center">
+				<span style="text-align: center;">Copyright @ 2023
+					GreatLearning All right reserved</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
